@@ -4,7 +4,7 @@ import pytest
 
 
 class TestCalc:
-    @pytest.mark.parametrize(('a','b'),[(1,2),(2,1),(0,0),(-1,-2),(-2,-1)])
+    @pytest.mark.parametrize(('a','b'),[(1,2),(2,1),(0,0),(-1,-2),(-2,-1),(100.0,200.0)])
     def test_add_1(self,a,b):
         self.demo1=demo1()
         result=self.demo1.add(a,b)
