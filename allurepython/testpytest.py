@@ -17,14 +17,7 @@ class TestCalc:
             result = self.demo1.div(a,b)
             print(result)
             assert (a/b) == result
-        except ZeroDivisionError as e:
+        except ValueError as e:
             assert False
             print(e)
 
-
-
-
-
-
-if __name__=='__main__':
-    pytest.main(['-vs','testPython::TestCalc::test_div_1'])

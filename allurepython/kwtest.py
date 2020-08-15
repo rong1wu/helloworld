@@ -4,8 +4,13 @@ import pytest
 
 
 class TestCalc:
+    def step(self):
+        with open("./step.yaml") as f:
+            return yaml.safe_load(f)
+
+    @pytest.mark.aaa
     @pytest.mark.parametrize(("a","b"),yaml.safe_load(open("./data.yaml")))
-    def test_add_1(self,a,b):
+    def calc_add_1(self,a,b):
         try:
             self.demo1=demo1()
             result=self.demo1.add(a,b)
@@ -15,7 +20,7 @@ class TestCalc:
             assert False
             print(e)
     @pytest.mark.parametrize(("a","b"),yaml.safe_load(open("./data.yaml")))
-    def test_div_1(self,a,b):
+    def calc_div_1(self,a,b):
         try:
             self.demo1 = demo1()
             result = self.demo1.div(a,b)
@@ -29,7 +34,7 @@ class TestCalc:
             print(e)
 
     @pytest.mark.parametrize(("a", "b"), yaml.safe_load(open("./data.yaml")))
-    def test_mul_1(self, a, b):
+    def calc_mul_1(self, a, b):
         try:
             self.demo1 = demo1()
             result = self.demo1.mul(a, b)
@@ -40,13 +45,15 @@ class TestCalc:
             print(e)
 
     @pytest.mark.parametrize(("a", "b"), yaml.safe_load(open("./data.yaml")))
-    def test_sub_1(self, a, b):
+    def calc_sub_1(self, a, b):
         try:
             self.demo1 = demo1()
             result = self.demo1.sub(a, b)
             print(result)
-            assert (a * b) == result
+            assert (a - b) == result
         except ValueError as e:
             assert False
             print(e)
 
+# if __name__ == '__main__':
+#     pytest.main()
