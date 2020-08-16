@@ -25,10 +25,12 @@ class BasePage:
 #为了将driver分离
     def find(self,by,locator):
         return self._driver.find_element(by,locator)
+
     def finds(self,by,locator):
         return self._driver.find_elements(by,locator)
     #显示等待
-    def wait_for(self,locator,time=10):
-        return WebDriverWait(self._driver,time).until(expected_conditions.element_to_be_clickable(locator))
-    def wait_for_click(self,conditions,time=10):
-        return WebDriverWait(self._driver,time).until(conditions)
+    def wait_for(self,locator):
+        return WebDriverWait(self._driver,10).until(expected_conditions.element_to_be_clickable(locator))
+
+    def wait_for_click(self,conditions):
+        return WebDriverWait(self._driver,10).until(conditions)

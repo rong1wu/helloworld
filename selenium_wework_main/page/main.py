@@ -29,5 +29,5 @@ class Main(BasePage):
     def goto_contacts(self):
         #self.wait_for(By.ID,"menu_index")
         #WebDriverWait(self._driver,10).until(expected_conditions.element_to_be_clickable)
-        self.find(By.ID,"menu_index").click()
+        self.find(By.ID,"menu_contacts").click()
         return Contacts(self._driver)
